@@ -5,15 +5,8 @@
 </template>
 
 <script>
-// import RegisterPage from "./views/Register";
-// import HomePage from "./views/Home";
-
 export default {
   name: "App",
-  // components: {
-  //   "home-page": HomePage,
-  //   "register-page": RegisterPage,
-  // },
 };
 </script>
 
