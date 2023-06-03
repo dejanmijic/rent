@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "./../services/httpService";
 
 export default {
   name: "Register-Page",
@@ -83,7 +83,7 @@ export default {
       };
       const self = this;
       axios
-        .post("http://localhost:3005/users", data)
+        .post("/users", data)
         .then(function () {
           self.$router.push("/log-in");
         })

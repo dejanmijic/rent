@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "./../services/httpService";
 
 export default {
   name: "Login-Page",
@@ -39,8 +39,9 @@ export default {
       };
       const self = this;
       axios
-        .post("http://localhost:3005/auth/log-in", data)
-        .then(function () {
+        .post("/auth/log-in", data)
+        .then(function (response) {
+          localStorage.setItem("token", response.data.token);
           self.$router.push("/");
         })
         .catch(function (error) {
