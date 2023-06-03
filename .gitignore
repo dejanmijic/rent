@@ -1,3 +1,5 @@
 .DS_Store
 rent-a-car-be/node_modules
 rent-a-car-fe/node_modules
+
+rent-a-car-be/.env
