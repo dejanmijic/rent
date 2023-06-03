@@ -9,6 +9,11 @@
       <div class="form-item">
         <label>Password:</label>
         <input type="password" v-model="password" />
+        <label
+          class="form-item-error"
+          v-if="password && repeatedPassword && password !== repeatedPassword"
+          >Passwords do not match!</label
+        >
       </div>
       <div class="form-item">
         <label>Repeat password:</label>
@@ -40,13 +45,18 @@
         <input type="date" v-model="dateOfBirth" />
       </div>
       <div>
-        <button class="submit" type="submit">Submit</button>
+        <button class="submit" :disabled="disabled()" type="submit">
+          Submit
+        </button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import router from "./../main";
+
 export default {
   name: "Register-Page",
 
@@ -57,17 +67,45 @@ export default {
       repeatedPassword: "",
       firstName: "",
       lastName: "",
-      gender: "male",
+      gender: "",
       dateOfBirth: "",
     };
   },
+
+  mounted() {
+    console.log(this);
+    console.log(router);
+  },
   methods: {
     handleSubmit() {
-      if (this.password !== this.repeatedPassword) {
-        alert("Passwords do not match");
-        return;
-      }
-      alert("Success!");
+      const data = {
+        userName: this.username,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        gender: this.gender,
+        dateOfBirth: this.dateOfBirth,
+      };
+      axios
+        .post("http://localhost:3005/users", data)
+        .then(function () {
+          this.$router.push("/log-in");
+        })
+        .catch(function (error) {
+          alert(error);
+        });
+    },
+    disabled() {
+      return (
+        !this.username ||
+        !this.password ||
+        !this.repeatedPassword ||
+        !this.firstName ||
+        !this.lastName ||
+        !this.gender ||
+        !this.dateOfBirth ||
+        this.password !== this.repeatedPassword
+      );
     },
   },
 };
@@ -75,7 +113,7 @@ export default {
 
 <style scoped>
 .register-form {
-  width: 50%;
+  width: 40%;
   margin: auto;
   text-align: center;
 }
@@ -93,6 +131,10 @@ export default {
   text-align: left;
   font-weight: 600;
   margin-bottom: 6px;
+}
+
+.form-item-error {
+  color: red;
 }
 
 .gender {
