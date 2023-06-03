@@ -15,6 +15,22 @@ module.exports.getUsers = async function () {
   }
 };
 
+module.exports.getUserById = async function (id) {
+  try {
+    const data = await fs.promises.readFile("data/Users.json", "utf8");
+    const users = JSON.parse(data).users;
+    const foundedUser = users.find(function (user) {
+      return user.id === id;
+    });
+    if (!foundedUser) {
+      throw new Error("User not found!");
+    }
+    return foundedUser;
+  } catch {
+    throw new Error();
+  }
+};
+
 module.exports.createUser = function (body) {
   try {
     fs.readFile(
@@ -27,7 +43,7 @@ module.exports.createUser = function (body) {
         fileData = JSON.parse(data);
         const hashedPassword = await hashPassword(body.password);
         const user = {
-          id: fileData.users.length + 1,
+          id: (fileData.users.length + 1).toString(),
           role: "buyer",
           ...body,
           password: hashedPassword,
