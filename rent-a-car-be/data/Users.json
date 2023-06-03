@@ -1,6 +1,3 @@
 {
-  "users": [
-    { "firstName": "aa", "lastName": "bb" },
-    { "firstName": "cc", "lastName": "dd" }
-  ]
+  "users": []
 }
