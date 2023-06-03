@@ -55,7 +55,6 @@
 
 <script>
 import axios from "axios";
-import router from "./../main";
 
 export default {
   name: "Register-Page",
@@ -72,24 +71,21 @@ export default {
     };
   },
 
-  mounted() {
-    console.log(this);
-    console.log(router);
-  },
   methods: {
     handleSubmit() {
       const data = {
-        userName: this.username,
+        username: this.username,
         password: this.password,
         firstName: this.firstName,
         lastName: this.lastName,
         gender: this.gender,
         dateOfBirth: this.dateOfBirth,
       };
+      const self = this;
       axios
         .post("http://localhost:3005/users", data)
         .then(function () {
-          this.$router.push("/log-in");
+          self.$router.push("/log-in");
         })
         .catch(function (error) {
           alert(error);

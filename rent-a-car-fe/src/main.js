@@ -12,9 +12,6 @@ export const router = new VueRouter({
   routes: Routes,
   mode: "history",
 });
-
-console.log(router);
-
 new Vue({
   render: (h) => h(App),
   router,
