@@ -6,6 +6,15 @@ async function hashPassword(plainPassword) {
   return password;
 }
 
+module.exports.getUsers = async function () {
+  try {
+    const data = await fs.promises.readFile("data/Users.json", "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports.createUser = function (body) {
   try {
     fs.readFile(

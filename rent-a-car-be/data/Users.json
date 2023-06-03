@@ -1,3 +1,14 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "role": "buyer",
+      "username": "aa1",
+      "password": "$2b$10$pIwOTAKH3f/S7uiA6TuYYeet/Hf5uaaENUbjff/kraCVJrweuUlXK",
+      "firstName": "A",
+      "lastName": "C",
+      "gender": "male",
+      "dateOfBirth": "2023-06-16"
+    }
+  ]
 }
