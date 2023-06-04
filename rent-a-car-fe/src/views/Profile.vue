@@ -88,7 +88,9 @@
       </div>
 
       <div v-if="editMode">
-        <button class="button submit" type="submit">Save</button>
+        <button class="button submit" type="submit" :disabled="disabled()">
+          Save
+        </button>
       </div>
     </form>
     <div v-if="!editMode">
@@ -174,6 +176,17 @@ export default {
             alert(error.response.data.error);
           }
         });
+    },
+    disabled() {
+      return (
+        !this.username ||
+        !this.firstName ||
+        !this.lastName ||
+        !this.gender ||
+        !this.dateOfBirth ||
+        (this.changePassword &&
+          (!this.newPassword || !this.oldPassword || !this.repeatedNewPassword))
+      );
     },
   },
 };
