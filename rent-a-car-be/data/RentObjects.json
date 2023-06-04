@@ -31,6 +31,22 @@
           "postalCode": 21000
         }
       }
+    },
+    {
+      "id": "3",
+      "name": "Rent a car ABC",
+      "opened": true,
+      "logoSrc": "https://findvectorlogo.com/wp-content/uploads/2019/11/rent-a-car-rentacar-fr-vector-logo.png",
+      "averageRating": 8.2,
+      "location": {
+        "latitude": 45.672538,
+        "longitude": 19.098754,
+        "address": {
+          "city": "Beograd",
+          "street": "Njegoseva 31",
+          "postalCode": 11000
+        }
+      }
     }
   ]
 }
