@@ -42,6 +42,12 @@ export default {
         .post("/auth/log-in", data)
         .then(function (response) {
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              id: response.data.user.id,
+            })
+          );
           self.$router.push("/");
         })
         .catch(function (error) {

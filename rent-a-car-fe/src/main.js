@@ -12,6 +12,18 @@ export const router = new VueRouter({
   routes: Routes,
   mode: "history",
 });
+
+router.beforeEach((to, from, next) => {
+  const authenticatedUser = localStorage.getItem("token");
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+  if (requiresAuth && !authenticatedUser) {
+    next("/log-in");
+  } else {
+    next();
+  }
+});
+
 new Vue({
   render: (h) => h(App),
   router,

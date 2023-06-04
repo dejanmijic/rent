@@ -10,5 +10,11 @@ export default [
   },
   { path: "/register", component: RegisterPage },
   { path: "/log-in", component: LoginPage },
-  { path: "/profile", component: ProfilePage },
+  {
+    path: "/profile",
+    component: ProfilePage,
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
