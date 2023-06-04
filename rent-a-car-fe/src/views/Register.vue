@@ -44,10 +44,14 @@
         <label>Date of birth:</label>
         <input type="date" v-model="dateOfBirth" />
       </div>
-      <div>
+      <div class="button-section">
         <button class="submit" :disabled="disabled()" type="submit">
           Submit
         </button>
+        <div class="nav">
+          <label class="right-delimiter" v-on:click="goToHomePage">Home</label>
+          <label v-on:click="goToLoginPage">Log In</label>
+        </div>
       </div>
     </form>
   </div>
@@ -103,6 +107,12 @@ export default {
         this.password !== this.repeatedPassword
       );
     },
+    goToLoginPage() {
+      this.$router.push("/log-in");
+    },
+    goToHomePage() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -151,5 +161,24 @@ export default {
   font-size: 24px;
   font-weight: 600;
   background-color: rgb(160, 226, 160);
+}
+.button-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-section label {
+  font-weight: 700;
+  cursor: pointer;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+}
+.nav label {
+  padding: 0 8px;
+}
+.right-delimiter {
+  border-right: 1px solid black;
 }
 </style>

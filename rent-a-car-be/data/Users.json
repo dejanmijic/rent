@@ -1,14 +1,1 @@
-{
-  "users": [
-    {
-      "id": "1",
-      "role": "buyer",
-      "username": "aa1",
-      "password": "$2b$10$smTsMQAVD3e2CfhMEJBCZ.4AH7vGBhz/Ea5plrMEFyJqbxHtVUsV2",
-      "firstName": "A",
-      "lastName": "X",
-      "gender": "male",
-      "dateOfBirth": "2023-06-16"
-    }
-  ]
-}
+{"users":[{"id":"1","role":"buyer","username":"aa1","password":"$2b$10$x7YuVEqg9UTBiQwH5De7VOpGvaRqkbzxvNcx1AIp5Ixdrq7H1wX46","firstName":"D","lastName":"M","gender":"male","dateOfBirth":"2023-07-20"}]}

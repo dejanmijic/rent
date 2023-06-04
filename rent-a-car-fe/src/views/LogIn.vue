@@ -14,7 +14,10 @@
         <button class="submit" :disabled="disabled()" type="submit">
           Log in
         </button>
-        <label v-on:click="goToRegisterPage">Register</label>
+        <div class="nav">
+          <label class="right-delimiter" v-on:click="goToHomePage">Home</label>
+          <label v-on:click="goToRegisterPage">Register</label>
+        </div>
       </div>
     </form>
   </div>
@@ -60,6 +63,9 @@ export default {
     },
     goToRegisterPage() {
       this.$router.push("/register");
+    },
+    goToHomePage() {
+      this.$router.push("/");
     },
   },
 };
@@ -109,5 +115,15 @@ export default {
 .button-section label {
   font-weight: 700;
   cursor: pointer;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+}
+.nav label {
+  padding: 0 8px;
+}
+.right-delimiter {
+  border-right: 1px solid black;
 }
 </style>
