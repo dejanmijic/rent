@@ -90,12 +90,12 @@
       <div v-if="editMode">
         <button class="button submit" type="submit">Save</button>
       </div>
-      <div v-if="!editMode">
-        <button class="button edit" v-on:click="switchMode(true)" type="submit">
-          Edit profile
-        </button>
-      </div>
     </form>
+    <div v-if="!editMode">
+      <button class="button edit" v-on:click="switchMode(true)">
+        Edit profile
+      </button>
+    </div>
   </div>
 </template>
 
@@ -106,6 +106,7 @@ export default {
   name: "Profile-Page",
   data() {
     return {
+      id: "",
       editMode: false,
       changePassword: false,
       username: "",
@@ -119,10 +120,10 @@ export default {
     };
   },
   mounted() {
-    const id = JSON.parse(localStorage.getItem("user")).id;
+    this.id = JSON.parse(localStorage.getItem("user")).id;
     const self = this;
     axios
-      .get(`/users/${id}`)
+      .get(`/users/${this.id}`)
       .then(function (response) {
         const user = response.data;
         self.username = user.username;
@@ -144,7 +145,36 @@ export default {
     switchChangePasswordMode(value) {
       this.changePassword = value;
     },
-    handleSubmit() {},
+    handleSubmit() {
+      const self = this;
+      const data = {
+        username: this.username,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        gender: this.gender,
+        dateOfBirth: this.dateOfBirth,
+      };
+      if (this.changePassword && this.newPassword && this.oldPassword) {
+        (data.newPassword = this.newPassword),
+          (data.oldPassword = this.oldPassword);
+      }
+      axios
+        .put(`/users/${this.id}`, data)
+        .then(function (response) {
+          self.editMode = false;
+          const user = response.data;
+          self.username = user.username;
+          self.firstName = user.firstName;
+          self.lastName = user.lastName;
+          self.gender = user.gender;
+          self.dateOfBirth = user.dateOfBirth;
+        })
+        .catch(function (error) {
+          if (error) {
+            alert(error.response.data.error);
+          }
+        });
+    },
   },
 };
 </script>

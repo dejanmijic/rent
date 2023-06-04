@@ -10,10 +10,11 @@
         <label>Password:</label>
         <input type="password" v-model="password" />
       </div>
-      <div>
+      <div class="button-section">
         <button class="submit" :disabled="disabled()" type="submit">
           Log in
         </button>
+        <label v-on:click="goToRegisterPage">Register</label>
       </div>
     </form>
   </div>
@@ -57,6 +58,9 @@ export default {
     disabled() {
       return !this.username || !this.password;
     },
+    goToRegisterPage() {
+      this.$router.push("/register");
+    },
   },
 };
 </script>
@@ -95,5 +99,15 @@ export default {
   font-size: 24px;
   font-weight: 600;
   background-color: rgb(160, 226, 160);
+}
+
+.button-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-section label {
+  font-weight: 700;
+  cursor: pointer;
 }
 </style>

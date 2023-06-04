@@ -65,6 +65,7 @@ export default {
   padding: 0 8px;
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 .right-delimiter {
   border-right: 1px solid black;

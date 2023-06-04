@@ -1,1 +1,14 @@
-{"users":[{"id":"1","role":"buyer","username":"aa1","password":"$2b$10$pIwOTAKH3f/S7uiA6TuYYeet/Hf5uaaENUbjff/kraCVJrweuUlXK","firstName":"A","lastName":"C","gender":"male","dateOfBirth":"2023-06-16"},{"id":"2","role":"buyer","username":"bb1","password":"$2b$10$zcGuerD88FkTKfq7kAv4QOsMIP3dHbwmDBghdjnTzZn2K3As/P3nm","firstName":"B","lastName":"M","gender":"male","dateOfBirth":"2023-06-11"}]}
+{
+  "users": [
+    {
+      "id": "1",
+      "role": "buyer",
+      "username": "aa1",
+      "password": "$2b$10$smTsMQAVD3e2CfhMEJBCZ.4AH7vGBhz/Ea5plrMEFyJqbxHtVUsV2",
+      "firstName": "A",
+      "lastName": "X",
+      "gender": "male",
+      "dateOfBirth": "2023-06-16"
+    }
+  ]
+}
