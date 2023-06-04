@@ -1,0 +1,36 @@
+{
+  "rentObjects": [
+    {
+      "id": "1",
+      "name": "Rent a car RED",
+      "opened": true,
+      "logoSrc": "https://c8.alamy.com/comp/T8P43H/vector-logo-for-car-rental-and-sales-T8P43H.jpg",
+      "averageRating": 9.2,
+      "location": {
+        "latitude": 45.249057,
+        "longitude": 19.83355,
+        "address": {
+          "city": "Novi Sad",
+          "street": "Bulevar Oslobodjenja 44",
+          "postalCode": 21000
+        }
+      }
+    },
+    {
+      "id": "2",
+      "name": "Car RENTAL",
+      "opened": false,
+      "logoSrc": "https://cdn3.vectorstock.com/i/1000x1000/56/72/car-rental-for-rent-word-on-red-ribbon-vector-26835672.jpg",
+      "averageRating": 8.7,
+      "location": {
+        "latitude": 45.435627,
+        "longitude": 19.869264,
+        "address": {
+          "city": "Novi Sad",
+          "street": "Maksima Gorkog 15",
+          "postalCode": 21000
+        }
+      }
+    }
+  ]
+}
