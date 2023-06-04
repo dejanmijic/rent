@@ -62,3 +62,39 @@ module.exports.createUser = function (body) {
     throw error;
   }
 };
+
+module.exports.editUser = async function (body, id) {
+  try {
+    const users = await this.getUsers();
+    const foundedUser = users.find(function (user) {
+      user.id = id;
+    });
+    if (!foundedUser) {
+      throw new Error("User not found!");
+    }
+    if (body.oldPassword && body.newPasword) {
+      const isMatch = bcrypt.compareSync(
+        body.oldPassword,
+        foundedUser.password
+      );
+      if (isMatch) {
+        throw new Error("Old password is wrong!");
+      }
+      body.password = await hashPassword(body.newPasword);
+      delete body.oldPassword;
+      delete body.newPasword;
+    }
+    const editedUsers = users.map(function (user) {
+      if (user.id === id) {
+        return { ...user, ...body };
+      } else {
+        return user;
+      }
+    });
+    const newData = JSON.stringify({ users: editedUsers });
+    await fs.promises.writeFile("data/Users.json", newData);
+    return { ...foundedUser, ...body };
+  } catch (error) {
+    throw error;
+  }
+};

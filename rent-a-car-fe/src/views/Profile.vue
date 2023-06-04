@@ -88,7 +88,7 @@
       </div>
 
       <div v-if="editMode">
-        <button class="button submit" type="submit">Submit</button>
+        <button class="button submit" type="submit">Save</button>
       </div>
       <div v-if="!editMode">
         <button class="button edit" v-on:click="switchMode(true)" type="submit">

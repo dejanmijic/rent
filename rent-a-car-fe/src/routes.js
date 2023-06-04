@@ -7,14 +7,16 @@ export default [
   {
     path: "/",
     component: HomePage,
+    children: [
+      {
+        path: "/profile",
+        component: ProfilePage,
+        meta: {
+          requiresAuth: true,
+        },
+      },
+    ],
   },
   { path: "/register", component: RegisterPage },
   { path: "/log-in", component: LoginPage },
-  {
-    path: "/profile",
-    component: ProfilePage,
-    meta: {
-      requiresAuth: true,
-    },
-  },
 ];
