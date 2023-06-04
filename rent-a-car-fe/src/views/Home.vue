@@ -3,6 +3,7 @@
     <div class="navbar">
       <div class="left-part">
         <label class="app-name">RentApp</label>
+        <router-link to="/objects" class="link">Objects</router-link>
       </div>
       <div class="right-part">
         <router-link v-if="!isAuthenticated" to="/log-in" class="link"
@@ -56,12 +57,16 @@ export default {
   font-size: 24px;
   font-weight: 700;
   color: rgb(227, 48, 8);
+  border: 1px solid;
+  padding: 6px;
+  margin-right: 16px;
 }
 .right-part {
   display: flex;
 }
 .link {
   font-size: 22px;
+  font-weight: 500;
   padding: 0 8px;
   color: black;
   text-decoration: none;
@@ -69,5 +74,8 @@ export default {
 }
 .right-delimiter {
   border-right: 1px solid black;
+}
+.router-link-active {
+  text-decoration: underline;
 }
 </style>
